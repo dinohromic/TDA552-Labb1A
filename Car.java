@@ -6,22 +6,27 @@ public class Car implements Movable{
     protected double currentSpeed; // The current speed of the car
     protected Color color; // Color of the car
     protected String modelName; // The car model name
-    private int x = 0;
-    private int y = 0;
+    private double x = 0;
+    private double y = 0;
     private double[] coordinates = new double[]{x,y};
     private int direction = 0; // Direction in which the car is pointing at start.
 
     //Might be public, change later
-    protected Car(int nrDoors, double enginePower, Color color, String modelName) {
+    protected Car(int nrDoors, double enginePower, Color color, String modelName, double currentSpeed) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.currentSpeed = currentSpeed;
     }
 
 
     public int getNrDoors(){
         return nrDoors;
+    }
+
+    public int getDirection(){
+        return direction;
     }
 
     public double getEnginePower(){

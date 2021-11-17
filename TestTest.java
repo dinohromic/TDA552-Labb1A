@@ -5,61 +5,63 @@ import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TestCar extends Car{
-
-
-    protected TestCar(int nrDoors, double enginePower, Color color, String modelName) {
-        super(nrDoors, enginePower, color, modelName);
-    }
+class TestCar{
 
     @Test
     void car_turns_left() {
+        Volvo240 volvo240 = new Volvo240(0);
+        volvo240.turnLeft();
+        assertEquals(3, volvo240.getDirection());
+
 
     }
 
     @Test
     void car_turns_right(){
+        Saab95 saab95 = new Saab95(0);
+        saab95.turnRight();
+        assertEquals(1, saab95.getDirection());
 
     }
 
     @Test
     void car_moves(){
+        Saab95 saab95 = new Saab95(0);
+        saab95.startEngine();
+        saab95.move(saab95.currentSpeed);
+        assertEquals();
 
-    }
-}
 
-class TestSaab extends Saab95{
-
-    @Test
-    void incSpeed(){
-
-    }
-
-    @Test
-    void decSpeed(){
 
     }
 
     @Test
-    void speedFactor(){
-
-    }
-}
-
-class TestVolvo extends Volvo240{
-
-    @Test
-    void incSpeed(){
+    void incSpeedSaab(){
 
     }
 
     @Test
-    void decSpeed(){
+    void decSpeedSaab(){
 
     }
 
     @Test
-    void speedFactor(){
+    void speedFactorSaab(){
+
+    }
+
+    @Test
+    void incSpeedVolvo(){
+
+    }
+
+    @Test
+    void decSpeedVolvo(){
+
+    }
+
+    @Test
+    void speedFactorVolvo(){
 
     }
 }
