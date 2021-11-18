@@ -18,18 +18,10 @@ public class Saab95 extends Car{
         turboOn = false;
     }
 
-    private double speedFactor(){
+    protected double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
-    }
-
-    private void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
-    }
-
-    private void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        return getEnginePower() * 0.01 * turbo;
     }
 
     // TODO fix this method according to lab pm

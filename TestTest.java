@@ -28,19 +28,20 @@ class TestCar{
 
     @Test
     void car_moves(){
-        Saab95 saab95 = new Saab95(0,10,10);
+        Saab95 saab95 = new Saab95(0,1,1);
         saab95.startEngine();
         //StartEngine = currentSpeed = 0.1
-        saab95.move(saab95.currentSpeed);
-        assertEquals(9.9, saab95.getY());
-
-
-
+        saab95.move(saab95.getCurrentSpeed());
+        assertEquals(0.9, saab95.getY());
     }
-    /*
+
     @Test
     void incSpeedSaab(){
-
+        Saab95 saab95 = new Saab95(0,0,0);
+        saab95.startEngine();
+        saab95.setTurboOn();
+        saab95.incrementSpeed(1);
+        assertEquals(1.725, saab95.getCurrentSpeed());
     }
 
     @Test
@@ -68,5 +69,5 @@ class TestCar{
 
     }
 
-     */
+
 }
