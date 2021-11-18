@@ -4,8 +4,8 @@ public class Saab95 extends Car{
 
     private boolean turboOn;
 
-    public Saab95(double currentSpeed){
-        super(2, 125, Color.red, "Saab95", currentSpeed);
+    public Saab95(double currentSpeed, double x, double y){
+        super(2, 125, Color.red, "Saab95", currentSpeed, x, y);
         turboOn = false;
         stopEngine();
     }

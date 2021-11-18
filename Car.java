@@ -12,12 +12,14 @@ public class Car implements Movable{
     private int direction = 0; // Direction in which the car is pointing at start.
 
     //Might be public, change later
-    protected Car(int nrDoors, double enginePower, Color color, String modelName, double currentSpeed) {
+    protected Car(int nrDoors, double enginePower, Color color, String modelName, double currentSpeed, double x, double y) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
         this.currentSpeed = currentSpeed;
+        this.x = x;
+        this.y  = y;
     }
 
 
@@ -53,6 +55,14 @@ public class Car implements Movable{
         currentSpeed = 0;
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
     @Override
     public void move (double currentSpeed) {
 
@@ -84,7 +94,7 @@ public class Car implements Movable{
     @Override
     public void turnLeft() {
         direction--;
-        if(direction % 4 == 3) {
+        if(direction == -1) {
             direction = 3;
         }
 
