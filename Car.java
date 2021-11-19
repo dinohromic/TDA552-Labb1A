@@ -6,8 +6,8 @@ public abstract class Car implements Movable{
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
-    private double x = 0;
-    private double y = 0;
+    private double x;
+    private double y;
     private double[] coordinates = new double[]{x,y};
     private int direction = 0; // Direction in which the car is pointing at start.
 
@@ -38,6 +38,10 @@ public abstract class Car implements Movable{
         return currentSpeed;
     }
 
+    public void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
     public Color getColor(){
         return color;
     }
@@ -61,6 +65,7 @@ public abstract class Car implements Movable{
     public double getY() {
         return y;
     }
+
 
     protected abstract double speedFactor();
 
@@ -100,7 +105,6 @@ public abstract class Car implements Movable{
 
     }
 
-    @Override
     public void turnLeft() {
         direction--;
         if(direction == -1) {
@@ -109,13 +113,23 @@ public abstract class Car implements Movable{
 
     }
 
-    @Override
     public void turnRight() {
         direction++;
         if(direction % 4 == 0) {
             direction = 0;
         }
 
+    }
+    // TODO fix this method according to lab pm
+    public void gas(double amount){
+        if (amount >= 0 && amount <= 1)
+                incrementSpeed(amount);
+    }
+
+    // TODO fix this method according to lab pm
+    public void brake(double amount){
+        if (amount >= 0 && amount <= 1)
+            decrementSpeed(amount);
     }
 }
 

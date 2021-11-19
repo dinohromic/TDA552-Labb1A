@@ -46,26 +46,40 @@ class TestCar{
 
     @Test
     void decSpeedSaab(){
-
+        Saab95 saab95 = new Saab95(0,0,0);
+        saab95.setCurrentSpeed(10);
+        saab95.decrementSpeed(1);
+        assertEquals(8.75, saab95.getCurrentSpeed());
     }
 
     @Test
     void speedFactorSaab(){
-
+        Saab95 saab95 = new Saab95(0,0,0);
+        saab95.speedFactor();
+        assertEquals(1.25, saab95.speedFactor());
     }
 
     @Test
     void incSpeedVolvo(){
-
+        Volvo240 volvo240 = new Volvo240(0,0,0);
+        volvo240.startEngine();
+        volvo240.incrementSpeed(1);
+        assertEquals(1.35, volvo240.getCurrentSpeed());
     }
 
     @Test
     void decSpeedVolvo(){
-
+        Volvo240 volvo240 = new Volvo240(0,0,0);
+        volvo240.setCurrentSpeed(10);
+        volvo240.decrementSpeed(1);
+        assertEquals(8.75, volvo240.getCurrentSpeed());
     }
 
     @Test
     void speedFactorVolvo(){
+        Volvo240 volvo240 = new Volvo240(0,0,0);
+        volvo240.speedFactor();
+        assertEquals(1.25, volvo240.speedFactor());
 
     }
 
