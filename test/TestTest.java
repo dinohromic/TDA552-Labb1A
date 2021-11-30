@@ -36,12 +36,21 @@ class TestCar{
     }
 
     @Test
-    void incSpeedSaab(){
+    void incSpeedSaabTurboON(){
         Saab95 saab95 = new Saab95(0,0,0);
         saab95.startEngine();
         saab95.setTurboOn();
         saab95.incrementSpeed(1);
         assertEquals(1.725, saab95.getCurrentSpeed());
+    }
+
+    @Test
+    void incSpeedSaabTurboOFF(){
+        Saab95 saab95 = new Saab95(0,0,0);
+        saab95.startEngine();
+        saab95.setTurboOff();
+        saab95.incrementSpeed(1);
+        assertEquals(1.35, saab95.getCurrentSpeed());
     }
 
     @Test
@@ -83,5 +92,43 @@ class TestCar{
 
     }
 
+    @Test
+    void gasSaab(){
+        Saab95 saab95 = new Saab95(0,0,0);
+        saab95.startEngine();
+        saab95.gas(1);
+        assertEquals(1.35, saab95.getCurrentSpeed());
+    }
+
+    @Test
+    void breakSaab(){
+        Saab95 saab95 = new Saab95(0,0,0);
+        saab95.startEngine();
+        saab95.setCurrentSpeed(10);
+        saab95.brake(1);
+        assertEquals(8.75,saab95.getCurrentSpeed());
+
+    }
+
+    @Test
+    void DistCarsOnTruck(){
+        CarTransporter carTransporter = new CarTransporter(0,0,0);
+        Saab95 saab95 = new Saab95(0,5,5);
+        carTransporter.DistanceOfCar(saab95);
+        assertEquals(false, carTransporter.DistanceOfCar(saab95));
+
+    }
+
+    @Test
+    void LoadCarsOnTruck(){
+        CarTransporter carTransporter = new CarTransporter(0,0,0);
+        Saab95 saab95 = new Saab95(0,1,2);
+        Volvo240 volvo240 = new Volvo240(0,2,1);
+        carTransporter.lowerRamp();
+        carTransporter.LoadCars(saab95);
+        carTransporter.LoadCars(volvo240);
+        carTransporter.UnloadCars();
+        assertEquals(1, carTransporter.GetAmountOfCarsInStorage());
+    }
 
 }
