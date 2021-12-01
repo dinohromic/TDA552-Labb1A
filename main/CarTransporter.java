@@ -49,9 +49,16 @@ public class CarTransporter extends Truck {
         return Math.sqrt(Math.pow(xPos, 2) + Math.pow(yPos, 2)) < 4;
     }
 
-    public void move(double currentspeed, CarTransporter carTransporter){
-        super.move(currentspeed);
-        sameCurrentspeed(currentspeed);
+    public void setPosition(double currentSpeed, CarTransporter carTransporter){
+        super.move(currentSpeed);
+        for(Car car: CarTransportList){
+            car.setCurrentSpeed(carTransporter.getCurrentSpeed());
+        }
+    }
+
+    public void move(double currentSpeed, CarTransporter carTransporter){
+        super.move(currentSpeed);
+        sameCurrentspeed(currentSpeed);
         for (Car car: CarTransportList){
             while (true) {
                 if(car.getDirection()== carTransporter.getDirection()){
