@@ -5,6 +5,7 @@ public class CarTransporter extends Truck {
 
     private boolean ramp;
     private ArrayList<Car> CarTransportList = new ArrayList<>(4);
+    private final int maxsize = 4;
 
     /**
      * Class constructor
@@ -26,15 +27,17 @@ public class CarTransporter extends Truck {
     }
 
     public void LoadCars(Car car){
-        if(!ramp && getCurrentSpeed() == 0 && DistanceOfCar(car)){
+        if(!ramp && getCurrentSpeed() == 0 && DistanceOfCar(car) && CarTransportList.size() < maxsize){
             CarTransportList.add(car);
+            car.assign();
         }
     }
 
-    public void UnloadCars(){
+    public void UnloadCars(Car car){
         int size = CarTransportList.size();
         if(!ramp && size != 0 && getCurrentSpeed() == 0){
             CarTransportList.remove(size-1);
+            car.RemoveAssign();
         }
     }
 
@@ -49,8 +52,7 @@ public class CarTransporter extends Truck {
         return Math.sqrt(Math.pow(xPos, 2) + Math.pow(yPos, 2)) < 4;
     }
 
-    public void setPosition(double currentSpeed, CarTransporter carTransporter){
-        super.move(currentSpeed);
+    private void setPosition(CarTransporter carTransporter){
         for(Car car: CarTransportList){
             car.setCurrentSpeed(carTransporter.getCurrentSpeed());
         }
@@ -58,7 +60,7 @@ public class CarTransporter extends Truck {
 
     public void move(double currentSpeed, CarTransporter carTransporter){
         super.move(currentSpeed);
-        sameCurrentspeed(currentSpeed);
+        setPosition(carTransporter);
         for (Car car: CarTransportList){
             while (true) {
                 if(car.getDirection()== carTransporter.getDirection()){

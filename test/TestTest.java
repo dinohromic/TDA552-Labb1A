@@ -127,7 +127,7 @@ class TestCar{
         carTransporter.lowerRamp();
         carTransporter.LoadCars(saab95);
         carTransporter.LoadCars(volvo240);
-        carTransporter.UnloadCars();
+        carTransporter.UnloadCars(volvo240);
         assertEquals(1, carTransporter.GetAmountOfCarsInStorage());
     }
 

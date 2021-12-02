@@ -1,6 +1,8 @@
 import java.awt.*;
 
 public abstract class Car extends Vehicle{
+
+    private boolean IsCarAssigned = false;
     /**
      * Class constructor
      *
@@ -15,4 +17,14 @@ public abstract class Car extends Vehicle{
     protected Car(int nrDoors, double enginePower, Color color, String modelName, double currentSpeed, double x, double y) {
         super(nrDoors, enginePower, color, modelName, currentSpeed, x, y);
     }
+
+    public void assign(){
+        this.IsCarAssigned = true;
+
+    }
+
+    public void RemoveAssign(){
+        this.IsCarAssigned = false;
+    }
+
 }
