@@ -1,8 +1,8 @@
 import java.awt.*;
 
 /**
- * object of type car
- * It represents a generalization of attributes for objects of the type car
+ * A class Vehicle that implements the interface IMovable.
+ * It represents a generalization of attributes for objects of the type vehicle.
  */
 public abstract class Vehicle implements Movable{
     private int nrDoors; // Number of doors on the car
@@ -17,13 +17,13 @@ public abstract class Vehicle implements Movable{
 
     /**
      * Class constructor
-     * @param nrDoors Amount of doors on the car
-     * @param enginePower The amount of enginepower the has
-     * @param color Color of the car
-     * @param modelName Name of the car
-     * @param currentSpeed current speed of the car when created
-     * @param x position of car when created
-     * @param y position of car when created
+     * @param nrDoors Amount of doors on the Vehicle
+     * @param enginePower The amount of enginepower the Vehicle has
+     * @param color Color of the Vehicle
+     * @param modelName Name of the Vehicle
+     * @param currentSpeed current speed of the Vehicle when created
+     * @param x position of Vehicle when created
+     * @param y position of Vehicle when created
      */
     //Might be public, change later
     protected Vehicle(int nrDoors, double enginePower, Color color, String modelName, double currentSpeed, double x, double y) {
@@ -48,55 +48,55 @@ public abstract class Vehicle implements Movable{
 
     /**
      * Method that gets amount of doors
-     * @return amount of doors on the car.
+     * @return amount of doors on the Vehicle.
      */
     public int getNrDoors(){
         return nrDoors;
     }
 
     /**
-     * Method that current returns direction of car
+     * Method that current returns direction of Vehicle
      * (0=up,1=right,2=down,3=left)
-     * @return current direction of car
+     * @return current direction of Vehicle
      */
     public int getDirection(){
         return direction;
     }
 
     /**
-     * Method that returns the engine power of the car
-     * @return engine power of the car
+     * Method that returns the engine power of the Vehicle
+     * @return engine power of the Vehicle
      */
     public double getEnginePower(){
         return enginePower;
     }
 
     /**
-     * Gets current speed of the car
-     * @return the current speed of the car
+     * Gets current speed of the Vehicle
+     * @return the current speed of the Vehicle
      */
     public double getCurrentSpeed(){
         return currentSpeed;
     }
 
     /**
-     * A method that gives the car a specified speed
-     * @param currentSpeed is the speed given to the car
+     * A method that gives the Vehicle a specified speed
+     * @param currentSpeed is the speed given to the Vehicle
      */
     public void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
 
     /**
-     * Gets the color of the car
-     * @return the color of the car
+     * Gets the color of the Vehicle
+     * @return the color of the Vehicle
      */
     public Color getColor(){
         return color;
     }
 
     /**
-     * A method to set the cars color
+     * A method to set the Vehicle color
      * @param clr is the color we want
      */
     public void setColor(Color clr){
@@ -104,7 +104,7 @@ public abstract class Vehicle implements Movable{
     }
 
     /**
-     * A method that starts the car and sets the current speed of the car to 0.1
+     * A method that starts the Vehicle and sets the current speed of the Vehicle to 0.1
      */
     public void startEngine(){
         currentSpeed = 0.1;
@@ -118,7 +118,7 @@ public abstract class Vehicle implements Movable{
     }
 
     /**
-     * Gets the x position of the car
+     * Gets the x position of the Vehicle
      * @return x position
      */
     public double getX() {
@@ -126,7 +126,7 @@ public abstract class Vehicle implements Movable{
     }
 
     /**
-     * Gets the y position of the car
+     * Gets the y position of the Vehicle
      * @return y position
      */
     public double getY() {
@@ -145,9 +145,9 @@ public abstract class Vehicle implements Movable{
     }
 
     /**
-     * A method that moves the car in a certain direction
-     * The method also decides how far the car travels with the current speed
-     * @param currentSpeed The current speed of the car
+     * A method that moves the Vehicle in a certain direction
+     * The method also decides how far the Vehicle travels with the current speed
+     * @param currentSpeed The current speed of the Vehicle
      */
     @Override
     public void move (double currentSpeed) {
@@ -178,7 +178,7 @@ public abstract class Vehicle implements Movable{
     }
 
     /**
-     * A method that turns the car left i.e. if the car is facing 0(up) the new direction will be 3(left)
+     * A method that turns the Vehicle left i.e. if the Vehicle is facing 0(up) the new direction will be 3(left)
      */
     public void turnLeft() {
         direction--;
@@ -189,7 +189,7 @@ public abstract class Vehicle implements Movable{
     }
 
     /**
-     * A method that turns the car right i.e. if the car is facing 0(up) the new direction will be 1(right)
+     * A method that turns the Vehicle right i.e. if the Vehicle is facing 0(up) the new direction will be 1(right)
      */
     public void turnRight() {
         direction++;
@@ -200,7 +200,7 @@ public abstract class Vehicle implements Movable{
     }
 
     /**
-     * A method that increases the speed of the car by a certain amount
+     * A method that increases the speed of the Vehicle by a certain amount
      * The amount is between 0 and 1
      * @param amount
      */
@@ -210,7 +210,7 @@ public abstract class Vehicle implements Movable{
     }
 
     /**
-     * A method the decreases the speed of the car by a certain amount
+     * A method the decreases the speed of the Vehicle by a certain amount
      * The amount is between 0 and 1
      * @param amount
      */

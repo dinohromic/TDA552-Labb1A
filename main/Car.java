@@ -1,5 +1,7 @@
 import java.awt.*;
-
+/**
+ * A subclass Car to the superclass Vehicle. Creates object of type Car.
+ */
 public abstract class Car extends Vehicle{
 
     private boolean IsCarAssigned = false;
@@ -18,11 +20,17 @@ public abstract class Car extends Vehicle{
         super(nrDoors, enginePower, color, modelName, currentSpeed, x, y);
     }
 
+    /**
+     * Assigns a car to another object, i.e a transporter truck.
+     */
     public void assign(){
         this.IsCarAssigned = true;
 
     }
 
+    /**
+     * Removes the assignment of a car to another object, i.e a transporter truck.
+     */
     public void RemoveAssign(){
         this.IsCarAssigned = false;
     }
