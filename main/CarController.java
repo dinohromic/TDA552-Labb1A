@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class CarController {
     // member fields:
+    private Vehicle car;
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
@@ -77,6 +78,18 @@ public class CarController {
         if((x < 0 || x > 800) || (y < 0 || y > 800)){
             car.turnLeft();
             car.turnLeft();
+        }
+    }
+
+    void turnLeft(){
+        for(Car car: cars) {
+            car.turnLeft();
+        }
+    }
+
+    void turnRight(){
+        for(Car car: cars) {
+            car.turnRight();
         }
     }
 }
