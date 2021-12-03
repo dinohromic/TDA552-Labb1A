@@ -109,6 +109,22 @@ class TestCar{
     }
 
     @Test
+    void gasScania(){
+        Scania scania = new Scania(0, 0, 0);
+        scania.startEngine();
+        scania.gas(1);
+        assertEquals(3.1, scania.getCurrentSpeed());
+    }
+
+    @Test
+    void speedFactorScania(){
+        Scania scania = new Scania(0,0,0);
+        scania.speedFactor();
+        assertEquals(3.0, scania.speedFactor());
+    }
+
+
+    @Test
     void DistCarsOnTruck(){
         CarTransporter carTransporter = new CarTransporter(0,0,0);
         Saab95 saab95 = new Saab95(0,5,5);
