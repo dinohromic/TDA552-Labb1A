@@ -4,7 +4,7 @@ import java.awt.*;
  */
 public abstract class Truck extends Vehicle {
 
-    private double angle;
+    private double platformAngle;
     /**
      * Class constructor
      *
@@ -18,7 +18,6 @@ public abstract class Truck extends Vehicle {
      */
     protected Truck(int nrDoors, double enginePower, Color color, String modelName, double currentSpeed, double x, double y) {
         super(nrDoors, enginePower, color, modelName, currentSpeed, x, y);
-        this.angle=0;
+        this.platformAngle=0;
     }
-
 }

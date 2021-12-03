@@ -4,7 +4,7 @@ import java.awt.*;
  * A class Vehicle that implements the interface IMovable.
  * It represents a generalization of attributes for objects of the type vehicle.
  */
-public abstract class Vehicle implements Movable{
+public abstract class Vehicle implements IMovable {
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
@@ -149,9 +149,9 @@ public abstract class Vehicle implements Movable{
      * The method also decides how far the Vehicle travels with the current speed
      * @param currentSpeed The current speed of the Vehicle
      */
+
     @Override
     public void move (double currentSpeed) {
-
 
         switch (direction) {
             case 0:
@@ -185,7 +185,6 @@ public abstract class Vehicle implements Movable{
         if(direction == -1) {
             direction = 3;
         }
-
     }
 
     /**
@@ -196,13 +195,11 @@ public abstract class Vehicle implements Movable{
         if(direction % 4 == 0) {
             direction = 0;
         }
-
     }
 
     /**
      * A method that increases the speed of the Vehicle by a certain amount
-     * The amount is between 0 and 1
-     * @param amount
+     * @param amount the amount by how much the vehicle is to brake (between 0 and 1).
      */
     public void gas(double amount){
         if (amount >= 0 && amount <= 1)
@@ -210,9 +207,8 @@ public abstract class Vehicle implements Movable{
     }
 
     /**
-     * A method the decreases the speed of the Vehicle by a certain amount
-     * The amount is between 0 and 1
-     * @param amount
+     * A method the decreases the speed of the Vehicle by a certain amount.
+     * @param amount the amount by how much the vehicle is to brake (between 0 and 1).
      */
     public void brake(double amount){
         if (amount >= 0 && amount <= 1)

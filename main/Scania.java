@@ -47,6 +47,7 @@ public class Scania extends Truck {
      * Starts the engine of truck. Unable to start if the platform angle is not 0 degrees. Speed automatically sets to
      * 0.1 when the engine starts.
      */
+
     @Override
     public void startEngine(){
         if(this.platformAngle ==0){

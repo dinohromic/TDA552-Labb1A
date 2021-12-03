@@ -13,8 +13,6 @@ class TestCar{
         Volvo240 volvo240 = new Volvo240(0,0,0);
         volvo240.turnLeft();
         assertEquals(3, volvo240.getDirection());
-
-
     }
 
     @Test

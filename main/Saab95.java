@@ -16,7 +16,7 @@ public class Saab95 extends Car{
      * Has turbo boolean that can increase the speed factor
      */
     public Saab95(double currentSpeed, double x, double y){
-        super(  2, 125, Color.red, "Saab95", currentSpeed, x, y);
+        super(2, 125, Color.red, "Saab95", currentSpeed, x, y);
         turboOn = false;
         stopEngine();
     }
@@ -40,9 +40,5 @@ public class Saab95 extends Car{
         if(turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
     }
-
-
-
-
 
 }

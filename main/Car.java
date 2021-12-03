@@ -1,6 +1,6 @@
 import java.awt.*;
 /**
- * A subclass Car to the superclass Vehicle. Creates object of type Car.
+ * A subclass Car to the superclass Vehicle. Defines object of type Car.
  */
 public abstract class Car extends Vehicle{
 
@@ -25,7 +25,6 @@ public abstract class Car extends Vehicle{
      */
     public void assign(){
         this.IsCarAssigned = true;
-
     }
 
     /**
