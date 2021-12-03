@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -48,6 +49,7 @@ public class CarController {
                 car.move(car.getCurrentSpeed());
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
+                insideMap(x, y, car);
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
@@ -68,6 +70,13 @@ public class CarController {
         double brake = ((double) amount) / 100;
         for (Car car : cars){
             car.brake(brake);
+        }
+    }
+
+    private void insideMap(int x, int y, Car car){
+        if((x < 0 || x > 800) || (y < 0 || y > 800)){
+            car.turnLeft();
+            car.turnLeft();
         }
     }
 }
