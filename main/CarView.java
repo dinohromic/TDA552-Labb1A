@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class CarView extends JFrame{
     private static final int X = 800;
     private static final int Y = 800;
+    private Vehicle car;
 
     // The controller member
     CarController carC;
@@ -136,6 +137,38 @@ public class CarView extends JFrame{
                 carC.turnRight();
             }
         });
+
+        turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOn();
+            }
+        });
+
+        turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOff();
+            }
+        });
+
+
+
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.startVehicles();
+            }
+        });
+
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.stopVehicles();
+            }
+        });
+
+
 
 
 

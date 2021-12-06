@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 
 public class CarController {
     // member fields:
-    private Vehicle vehicle;
+    private Vehicle car;
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
@@ -32,8 +31,7 @@ public class CarController {
         CarController cc = new CarController();
 
         cc.cars.add(new Volvo240(0, 10, 10));
-        cc.cars.add(new Saab95(0,10, 110));
-        cc.cars.add(new Scania(0, 10, 220));
+        cc.cars.add(new Saab95(0, 20, 20));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -47,11 +45,11 @@ public class CarController {
     * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Vehicle vehicle : cars) {
-                vehicle.move(vehicle.getCurrentSpeed());
-                int x = (int) Math.round(vehicle.getX());
-                int y = (int) Math.round(vehicle.getY());
-                insideMap(x, y, vehicle);
+            for (Vehicle car : cars) {
+                car.move(car.getCurrentSpeed());
+                int x = (int) Math.round(car.getX());
+                int y = (int) Math.round(car.getY());
+                insideMap(x, y, car);
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
@@ -62,52 +60,68 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Vehicle vehicle : cars) {
-            vehicle.gas(gas);
+        for (Vehicle car : cars) {
+            car.gas(gas);
 
         }
     }
 
     void brake(int amount){
         double brake = ((double) amount) / 100;
-        for (Vehicle vehicle : cars){
-            vehicle.brake(brake);
+        for (Vehicle car : cars){
+            car.brake(brake);
         }
     }
 
-    private void insideMap(int x, int y, Vehicle vehicle){
-        if((x < 0 || x > 800-100) || (y < 0 || y > 800-300)){
-            vehicle.turnLeft();
-            vehicle.turnLeft();
+    private void insideMap(int x, int y, Vehicle car){
+        if((x < 0 || x > 800) || (y < 0 || y > 800)){
+            car.turnLeft();
+            car.turnLeft();
         }
     }
 
     void turnLeft(){
-        for(Vehicle vehicle: cars) {
-            vehicle.turnLeft();
+        for(Vehicle car: cars) {
+            car.turnLeft();
         }
     }
 
     void turnRight(){
-        for(Vehicle vehicle: cars) {
-            vehicle.turnRight();
+        for(Vehicle car: cars) {
+            car.turnRight();
         }
     }
-    void turboOn(Saab95 saab95){
-        for(Vehicle vehicle: cars){
-            if (vehicle == saab95){
-                saab95.setTurboOn();
+    void turboOn(){
+        for(Vehicle car: cars){
+            if (checkIfItIsSaabClass(car)){
+                ((Saab95) car).setTurboOn();
             }
 
         }
     }
-    void turboOff(Saab95 saab95){
-        for(Vehicle vehicle: cars){
-            if (vehicle == saab95){
-                saab95.setTurboOff();
+    void turboOff(){
+        for(Vehicle car: cars){
+            if (checkIfItIsSaabClass(car)){
+                ((Saab95) car).setTurboOff();
             }
 
         }
+    }
+
+    void startVehicles(){
+        for(Vehicle car: cars){
+            car.startEngine();
+        }
+    }
+
+    void stopVehicles(){
+        for(Vehicle car: cars){
+            car.stopEngine();
+        }
+    }
+
+    private boolean checkIfItIsSaabClass(Vehicle car){
+        return car.getClass() == Saab95.class;
     }
 
 }
