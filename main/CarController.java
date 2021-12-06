@@ -31,7 +31,8 @@ public class CarController {
         CarController cc = new CarController();
 
         cc.cars.add(new Volvo240(0, 10, 10));
-        cc.cars.add(new Saab95(0, 20, 20));
+        cc.cars.add(new Saab95(0, 10, 110));
+        cc.cars.add(new Scania(0,10, 210));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -50,7 +51,7 @@ public class CarController {
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
                 insideMap(x, y, car);
-                frame.drawPanel.moveit(x, y);
+                frame.drawPanel.moveit(x, y, cars.indexOf(car));
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
@@ -74,7 +75,7 @@ public class CarController {
     }
 
     private void insideMap(int x, int y, Vehicle car){
-        if((x < 0 || x > 800) || (y < 0 || y > 800)){
+        if((x < 0 || x > 800-100) || (y < 0 || y > 800-300)){
             car.turnLeft();
             car.turnLeft();
         }
