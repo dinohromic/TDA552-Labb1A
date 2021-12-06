@@ -32,7 +32,7 @@ public class CarController {
         CarController cc = new CarController();
 
         cc.cars.add(new Volvo240(2, 10, 10));
-        cc.cars.add(new Saab95(0, 20, 20));
+        //cc.cars.add(new Saab95(0, 20, 20));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -92,5 +92,22 @@ public class CarController {
             car.turnRight();
         }
     }
+    void turboOn(Saab95 saab95){
+        for(Car car: cars){
+            if (car == saab95){
+                saab95.setTurboOn();
+            }
+
+        }
+    }
+    void turboOff(Saab95 saab95){
+        for(Car car: cars){
+            if (car == saab95){
+                saab95.setTurboOff();
+            }
+
+        }
+    }
+
 }
 
