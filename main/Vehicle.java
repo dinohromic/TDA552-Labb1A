@@ -63,6 +63,10 @@ public abstract class Vehicle implements IMovable {
         return direction;
     }
 
+    public String getModelName(){
+        return modelName;
+    }
+
     /**
      * Method that returns the engine power of the Vehicle
      * @return engine power of the Vehicle
