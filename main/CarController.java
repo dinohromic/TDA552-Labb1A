@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -94,7 +93,7 @@ public class CarController {
     }
     void turboOn(){
         for(Vehicle car: cars){
-            if (checkIfRightClass(car, Saab95.class)){
+            if (checkIfItIsSaabClass(car)){
                 ((Saab95) car).setTurboOn();
             }
 
@@ -102,7 +101,7 @@ public class CarController {
     }
     void turboOff(){
         for(Vehicle car: cars){
-            if (checkIfRightClass(car, Saab95.class)){
+            if (checkIfItIsSaabClass(car)){
                 ((Saab95) car).setTurboOff();
             }
 
@@ -121,8 +120,8 @@ public class CarController {
         }
     }
 
-    private boolean checkIfRightClass(Vehicle car, Class<? extends Vehicle> T){
-        return car.getClass() == T;
+    private boolean checkIfItIsSaabClass(Vehicle car){
+        return car.getClass() == Saab95.class;
     }
 
 }
