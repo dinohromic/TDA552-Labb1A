@@ -94,7 +94,7 @@ public class CarController {
     }
     void turboOn(){
         for(Vehicle car: cars){
-            if (checkIfItIsSaabClass(car)){
+            if (checkIfItIsSaabClass(car, Saab95.class)){
                 ((Saab95) car).setTurboOn();
             }
 
@@ -102,7 +102,7 @@ public class CarController {
     }
     void turboOff(){
         for(Vehicle car: cars){
-            if (checkIfItIsSaabClass(car)){
+            if (checkIfItIsSaabClass(car, Saab95.class)){
                 ((Saab95) car).setTurboOff();
             }
 
@@ -121,8 +121,26 @@ public class CarController {
         }
     }
 
-    private boolean checkIfItIsSaabClass(Vehicle car){
-        return car.getClass() == Saab95.class;
+    void raiseBedOfScania(double newangle){
+        for( Vehicle car: cars) {
+            if (checkIfItIsSaabClass(car, Scania.class)){
+                ((Scania) car).IncreasePlatform(newangle);
+            }
+        }
+
+    }
+
+    void lowerBedOfScania(double newangle){
+        for( Vehicle car: cars) {
+            if (checkIfItIsSaabClass(car, Scania.class)){
+                ((Scania) car).DecreasePlatform(newangle);
+            }
+        }
+
+    }
+
+    private boolean checkIfItIsSaabClass(Vehicle car, Class <? extends Vehicle> T){
+        return car.getClass() == T;
     }
 
 }
