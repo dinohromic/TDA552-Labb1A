@@ -13,6 +13,8 @@ public class CarController {
     // member fields:
     private Vehicle car;
 
+    private CarModel carModel;
+
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
     // The timer is started with a listener (see below) that executes the statements
@@ -68,10 +70,8 @@ public class CarController {
     }
 
     void brake(int amount){
-        double brake = ((double) amount) / 100;
-        for (Vehicle car : cars){
-            car.brake(brake);
-        }
+        carModel.brake(amount);
+
     }
 
     private void insideMap(int x, int y, Vehicle car){
@@ -82,24 +82,17 @@ public class CarController {
     }
 
     void turnLeft(){
-        for(Vehicle car: cars) {
-            car.turnLeft();
-        }
+        carModel.turnLeft();
     }
 
     void turnRight(){
-        for(Vehicle car: cars) {
-            car.turnRight();
-        }
+        carModel.turnRight();
+
     }
     void turboOn(){
-        for(Vehicle car: cars){
-            if (checkIfItIsSaabClass(car, Saab95.class)){
-                ((Saab95) car).setTurboOn();
-            }
-
-        }
+        carModel.turboOn();
     }
+
     void turboOff(){
         for(Vehicle car: cars){
             if (checkIfItIsSaabClass(car, Saab95.class)){
@@ -110,15 +103,12 @@ public class CarController {
     }
 
     void startVehicles(){
-        for(Vehicle car: cars){
-            car.startEngine();
-        }
+        carModel.startVehicles();
+
     }
 
     void stopVehicles(){
-        for(Vehicle car: cars){
-            car.stopEngine();
-        }
+        carModel.stopVehicles();
     }
 
     void raiseBedOfScania(double newangle){
